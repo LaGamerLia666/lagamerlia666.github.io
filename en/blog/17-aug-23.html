@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trans people in chess</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/oneko.js"></script>
+    <!-- THIS NEXT SNIPPET OF CODE WAS BLATANTLY STOLEN FROM W3SCHOOLS, I DON'T KNOW WHAT IT MEANS -->
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="title">
+    <div w3-include-html="/en/header.html"></div>
+    <script>
+      includeHTML();
+    </script>
+    
+    <div class="blog">
+      <h3>FUCKING CHESS AND ✨TRANS PEOPLE✨</h3>
+      <p>The FIDE has released <a href="https://doc.fide.com/docs/DOC/2FC2023/CM2_2023_45.pdf">a document</a> stating that trans women cannot compete against cis women because the organization suspects a "biological advantage" and they're using that piece of shit while they come to a conclusion on that (THEY DO NOT).<br>
+        The only "advantage" I can possibly think of is that when a trans person loses and suffers gamer rage, they can throw the checkerboard farther away than a cis woman. Even so, that is still not a valid argument due to biological advantage, again, not existing.<br>
+        On an equally shitty note: trans men will have their pre-transitioning titles wiped or their level reduced. But fear not! They can recover their titles if- *checks notes* they DETRANSITION!? What were the people who wrote this even thinking? Mind you, this does not apply in any way to trans women, bit of a kick in the gut, eh?<br>
+        The least we can do is make enough noise before 21 August (when it will take effect). I'm going to talk with a cis woman who teaches chess in my area to see if she agrees to compete against me in chess (I only know the basic moves) to prove that I have no advantage over her.<br>
+        So I guess that's that, fuck the FIDE, goodnight.<br><br>
+        Sources: <a href="https://en.wikipedia.org/wiki/FIDE#Restrictions_on_transgender_players">Wikipedia</a>, <a href="https://www.fide.com/news/2580">FIDE</a></p>
+    </div>
+    <script src="/js/oneko.js"></script>
+  </body>
+</html>

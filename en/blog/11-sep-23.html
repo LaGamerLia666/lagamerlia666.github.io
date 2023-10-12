@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs in the Arduino</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/oneko.js"></script>
+    <!-- THIS NEXT SNIPPET OF CODE WAS BLATANTLY STOLEN FROM W3SCHOOLS, I DON'T KNOW WHAT IT MEANS -->
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="title">
+    <div w3-include-html="/en/header.html"></div>
+    <script>
+      includeHTML();
+    </script>
+    
+    <div class="blog">
+      <h3>GRANDUINO! Bitstones?!</h3>
+      <p>Yeah so I made an arduino rendition of the flintstones theme.<br>
+      I've actually been putting this off for a long time, I have no reason for that. I guess I'm just <s>lazy</s> overwhelmed with school.<br>
+      My initial idea was to open a MIDI file in LMMS and manually write the notes and tempos, but today I found this <a href="https://www.extramaster.net/tools/midiToArduino/" target="_blank">converter</a> that's pretty cool and it does a better job than I could have done.<br>
+      Anyway, here's the code for the grand dad:</p>
+<textarea readonly style="height: 75px; width: 400px;">int tonePin = 10;
+
+void midi() {
+&nbsp;&nbsp;tone(tonePin, 207, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 138, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(352.1125);
+&nbsp;&nbsp;tone(tonePin, 277, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 233, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 207, 230.248564453);
+&nbsp;&nbsp;delay(255.831738281);
+&nbsp;&nbsp;delay(96.2807617188);
+&nbsp;&nbsp;tone(tonePin, 138, 163.402207031);
+&nbsp;&nbsp;delay(181.558007812);
+&nbsp;&nbsp;delay(346.610742188);
+&nbsp;&nbsp;tone(tonePin, 207, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 184, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 174, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 184, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 195, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 207, 138.644296875);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;delay(22.00703125);
+&nbsp;&nbsp;tone(tonePin, 138, 302.046503906);
+&nbsp;&nbsp;delay(335.607226562);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 155, 302.046503906);
+&nbsp;&nbsp;delay(335.607226562);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 174, 302.046503906);
+&nbsp;&nbsp;delay(335.607226562);
+&nbsp;&nbsp;delay(1072.84277344);
+&nbsp;&nbsp;tone(tonePin, 207, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 138, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(352.1125);
+&nbsp;&nbsp;tone(tonePin, 277, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 233, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 207, 230.248564453);
+&nbsp;&nbsp;delay(255.831738281);
+&nbsp;&nbsp;delay(96.2807617188);
+&nbsp;&nbsp;tone(tonePin, 138, 163.402207031);
+&nbsp;&nbsp;delay(181.558007812);
+&nbsp;&nbsp;delay(346.610742188);
+&nbsp;&nbsp;tone(tonePin, 207, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(192.561523438);
+&nbsp;&nbsp;tone(tonePin, 184, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 174, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 184, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 195, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 207, 138.644296875);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;delay(22.00703125);
+&nbsp;&nbsp;tone(tonePin, 138, 302.046503906);
+&nbsp;&nbsp;delay(335.607226562);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 155, 302.046503906);
+&nbsp;&nbsp;delay(335.607226562);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 138, 297.094921875);
+&nbsp;&nbsp;delay(330.10546875);
+&nbsp;&nbsp;delay(1078.34453125);
+&nbsp;&nbsp;tone(tonePin, 261, 222.821191406);
+&nbsp;&nbsp;delay(247.579101562);
+&nbsp;&nbsp;delay(104.533398437);
+&nbsp;&nbsp;tone(tonePin, 174, 237.6759375);
+&nbsp;&nbsp;delay(264.084375);
+&nbsp;&nbsp;delay(264.084375);
+&nbsp;&nbsp;tone(tonePin, 277, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(184.308886719);
+&nbsp;&nbsp;tone(tonePin, 277, 131.216923828);
+&nbsp;&nbsp;delay(145.796582031);
+&nbsp;&nbsp;delay(30.2596679688);
+&nbsp;&nbsp;tone(tonePin, 277, 123.789550781);
+&nbsp;&nbsp;delay(137.543945312);
+&nbsp;&nbsp;delay(38.5123046875);
+&nbsp;&nbsp;tone(tonePin, 261, 131.216923828);
+&nbsp;&nbsp;delay(145.796582031);
+&nbsp;&nbsp;delay(30.2596679688);
+&nbsp;&nbsp;tone(tonePin, 261, 131.216923828);
+&nbsp;&nbsp;delay(145.796582031);
+&nbsp;&nbsp;delay(30.2596679688);
+&nbsp;&nbsp;tone(tonePin, 233, 123.789550781);
+&nbsp;&nbsp;delay(137.543945312);
+&nbsp;&nbsp;delay(38.5123046875);
+&nbsp;&nbsp;tone(tonePin, 233, 118.83796875);
+&nbsp;&nbsp;delay(132.0421875);
+&nbsp;&nbsp;delay(572.1828125);
+&nbsp;&nbsp;tone(tonePin, 233, 198.06328125);
+&nbsp;&nbsp;delay(220.0703125);
+&nbsp;&nbsp;delay(132.0421875);
+&nbsp;&nbsp;tone(tonePin, 155, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(352.1125);
+&nbsp;&nbsp;tone(tonePin, 261, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(184.308886719);
+&nbsp;&nbsp;tone(tonePin, 233, 118.83796875);
+&nbsp;&nbsp;delay(132.0421875);
+&nbsp;&nbsp;delay(44.0140625);
+&nbsp;&nbsp;tone(tonePin, 233, 131.216923828);
+&nbsp;&nbsp;delay(145.796582031);
+&nbsp;&nbsp;delay(30.2596679688);
+&nbsp;&nbsp;tone(tonePin, 207, 111.410595703);
+&nbsp;&nbsp;delay(123.789550781);
+&nbsp;&nbsp;delay(52.2666992187);
+&nbsp;&nbsp;tone(tonePin, 195, 138.644296875);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;delay(22.00703125);
+&nbsp;&nbsp;tone(tonePin, 233, 99.031640625);
+&nbsp;&nbsp;delay(110.03515625);
+&nbsp;&nbsp;delay(66.02109375);
+&nbsp;&nbsp;tone(tonePin, 207, 178.256953125);
+&nbsp;&nbsp;delay(198.06328125);
+&nbsp;&nbsp;delay(506.16171875);
+&nbsp;&nbsp;tone(tonePin, 207, 178.256953125);
+&nbsp;&nbsp;delay(198.06328125);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;tone(tonePin, 138, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(352.1125);
+&nbsp;&nbsp;tone(tonePin, 277, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;tone(tonePin, 233, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 207, 210.442236328);
+&nbsp;&nbsp;delay(233.824707031);
+&nbsp;&nbsp;delay(118.287792969);
+&nbsp;&nbsp;tone(tonePin, 138, 170.829580078);
+&nbsp;&nbsp;delay(189.810644531);
+&nbsp;&nbsp;delay(338.358105469);
+&nbsp;&nbsp;tone(tonePin, 207, 158.450625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;delay(176.05625);
+&nbsp;&nbsp;tone(tonePin, 184, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 174, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 184, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 195, 111.410595703);
+&nbsp;&nbsp;delay(123.789550781);
+&nbsp;&nbsp;delay(52.2666992187);
+&nbsp;&nbsp;tone(tonePin, 207, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 138, 250.054892578);
+&nbsp;&nbsp;delay(277.838769531);
+&nbsp;&nbsp;delay(74.2737304688);
+&nbsp;&nbsp;tone(tonePin, 155, 170.829580078);
+&nbsp;&nbsp;delay(189.810644531);
+&nbsp;&nbsp;delay(338.358105469);
+&nbsp;&nbsp;tone(tonePin, 174, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 184, 118.83796875);
+&nbsp;&nbsp;delay(132.0421875);
+&nbsp;&nbsp;delay(44.0140625);
+&nbsp;&nbsp;tone(tonePin, 207, 151.023251953);
+&nbsp;&nbsp;delay(167.803613281);
+&nbsp;&nbsp;delay(8.25263671875);
+&nbsp;&nbsp;tone(tonePin, 138, 257.482265625);
+&nbsp;&nbsp;delay(286.09140625);
+&nbsp;&nbsp;delay(66.02109375);
+&nbsp;&nbsp;tone(tonePin, 155, 183.208535156);
+&nbsp;&nbsp;delay(203.565039063);
+&nbsp;&nbsp;delay(324.603710938);
+&nbsp;&nbsp;tone(tonePin, 174, 138.644296875);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;delay(22.00703125);
+&nbsp;&nbsp;tone(tonePin, 184, 143.595878906);
+&nbsp;&nbsp;delay(159.550976563);
+&nbsp;&nbsp;delay(16.5052734375);
+&nbsp;&nbsp;tone(tonePin, 207, 138.644296875);
+&nbsp;&nbsp;delay(154.04921875);
+&nbsp;&nbsp;delay(22.00703125);
+&nbsp;&nbsp;tone(tonePin, 277, 242.627519531);
+&nbsp;&nbsp;delay(269.586132813);
+&nbsp;&nbsp;delay(82.5263671875);
+&nbsp;&nbsp;tone(tonePin, 311, 269.861220703);
+&nbsp;&nbsp;delay(299.845800781);
+&nbsp;&nbsp;delay(52.2666992187);
+&nbsp;&nbsp;tone(tonePin, 277, 812.059453125);
+&nbsp;&nbsp;delay(902.28828125);
+
+&nbsp;&nbsp;noTone(tonePin);
+}
+
+void setup() {
+
+}
+
+void loop() {
+&nbsp;&nbsp;midi();
+&nbsp;&nbsp;delay(1000);
+}</textarea>
+      <p>And here's some thing I made just to test things out, it's Daisy Bell for the Arduino:</p>
+<textarea readonly style="height: 75px; width: 400px;">int tonePin = 10;
+
+void midi() {
+&nbsp;&nbsp;tone(tonePin, 783, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 659, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 523, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 391, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 440, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 493, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 440, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 391, 1350.0);
+&nbsp;&nbsp;delay(1500.0);
+&nbsp;&nbsp;tone(tonePin, 587, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 783, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 659, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 523, 675.0);
+&nbsp;&nbsp;delay(750.0);
+&nbsp;&nbsp;tone(tonePin, 440, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 493, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 1125.0);
+&nbsp;&nbsp;delay(1250.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 698, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 783, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 900.0);
+&nbsp;&nbsp;delay(1000.0);
+&nbsp;&nbsp;tone(tonePin, 587, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 659, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 440, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 440, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 391, 900.0);
+&nbsp;&nbsp;delay(1000.0);
+&nbsp;&nbsp;tone(tonePin, 391, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 391, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 698, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 783, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 659, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 587, 450.0);
+&nbsp;&nbsp;delay(500.0);
+&nbsp;&nbsp;tone(tonePin, 391, 225.0);
+&nbsp;&nbsp;delay(250.0);
+&nbsp;&nbsp;tone(tonePin, 523, 1350.0);
+&nbsp;&nbsp;delay(1500.0);
+
+&nbsp;&nbsp;noTone(tonePin);
+}
+
+void setup() {
+
+}
+
+void loop() {
+&nbsp;&nbsp;midi();
+&nbsp;&nbsp;delay(1000);
+}</textarea>
+<p>And if you don't trust my code then I'll make a video of it running or something, before this is published. It's gonna be here.<br>
+<a href="https://www.youtube.com/watch?v=7PvbT2rfq3U" target="_blank">Yeah the video is finally here</a><br><br>Goodnight.</p>
+    </div>
+    <script src="/js/oneko.js"></script>
+  </body>
+</html>

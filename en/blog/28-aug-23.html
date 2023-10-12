@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State of my devices</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/oneko.js"></script>
+    <!-- THIS NEXT SNIPPET OF CODE WAS BLATANTLY STOLEN FROM W3SCHOOLS, I DON'T KNOW WHAT IT MEANS -->
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="title">
+    <div w3-include-html="/en/header.html"></div>
+    <script>
+      includeHTML();
+    </script>
+    
+    <div class="blog">
+      <h3>My phone snapped its neck :(</h3>
+      <p>A few days ago I did something to enhance my gæming experience: I got a new desk.<br>Previously, I had 2 tables joined that formed a desk. One that was wider to place my monitor and peripherals, and a longer one to place my computer and whatever project I might be working on at the time.<br>But now, my computer is on a smaller table where it barely fits anything else. I did this on purpose because my room is already very small so this is actually an improvement.<br>Now you, the reader, might be asking, why don't I get a larger table and put everything in there? Well, when it rains my membrane roof starts leaking and my ceiling drips water in the vicinity of my computer, I don't want the power supply's fan sucking up water when I play leaked half life 3 builds so I use a table.<br><br>
+        Now, onto the main topic on this post: my phone!<br>I was visiting a friend at their school, it was chilly so I was wearing gloves. At a certain moment I wanted to take a photo of the sky, so I pulled my phone out of my pocket. Now, usually my hands have a decent enough grip so my phone doesn't slip out and fly, not this time! Since I was wearing gloves and phones are made of glass my phone did the slippity slip and fell screen-side-down onto the hard cement floor. My friends looked at me with horror in their faces while I was there like <i>:/</i>.<br>Yeah, I didn't panic because I always have a plan for the rarest-case scenarios. I was gonna buy a new screen off aliexpress because they're cheap and usually have free shipping. But my mom interrupted my plans, she said her phone was too slow for her and she needed an upgrade, great! Now she will buy a phone for herself and hand the current one to me, it's a win-win situation!<br>I still have to do something about my old phone though. I have another friend that said they were willing to buy me a new screen for that phone if I repaired it and gave it to them, I agreed since it's better than donating it to <a href="https://smashsomestuff.com" target="_blank">SmashSomeStuff</a>.<br>An issue I'm seeing with my future new phone is that it's a Xiaomi phone, and MIUI is not only CCP spyware, but it's also full of ads! I was thinking of rooting it to get rid of the bloatware too, but why not straight up installing a custom ROM on it? I looked into it and I think I'm gonna use <a href="https://e.foundation/es/e-os/" target="_blank">/e/OS</a>, it looks pretty cool with all the de-googledness and security and shit. I still have to learn how to actually flash custom ROMs without bricking the device so that's that.<br><br>I'm at school right now writing this, Mom is at the phone store arguing with the cashier (I guess), and this is all I have to say.<br>Good night.
+        </p>
+    </div>
+    <script src="/js/oneko.js"></script>
+  </body>
+</html>

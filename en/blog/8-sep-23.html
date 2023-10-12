@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I phinally phlashed my fone</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/oneko.js"></script>
+    <!-- THIS NEXT SNIPPET OF CODE WAS BLATANTLY STOLEN FROM W3SCHOOLS, I DON'T KNOW WHAT IT MEANS -->
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="title">
+    <div w3-include-html="/en/header.html"></div>
+    <script>
+      includeHTML();
+    </script>
+    
+    <div class="blog">
+      <h3>The <s>&sol;e&sol;cosystem</s> LineageOS experience</h3>
+      <p>Yeah, so I forgot to talk about the installation that went down 2 days ago.<br>
+      It was okay. I didn't have many problems.<br>
+      The <a href="https://doc.e.foundation/devices/Mi439/install" target="_blank">tutorial</a> I followed had a small problem regarding step 1 of "Flashing additional partitions" where the files with the latest date were apparently too new for the latest build for my phone, but I just downloaded older files and I was done.<br>
+      Now, while using &sol;e&sol; and being free of Google's shackles is great and all that, I don't like it. I just rely too much on Google services to do what I do so I can't leave it yet.<br>
+      So I said "fuck it" and installed LineageOS instead.<br>
+      And while I might think this is possibly the best experience I have had with an Android device ever, it still has a small problem: It does not come with Google services, you have to sideload a package through ADB that installs the Google app and Play Store, because apparently it's illegal to have them built-in since LineageOS is open source and Google apps aren't.<br>
+      That was this Wednesday and I've had 2 days to test the new phone out and I gotta say, it's a great experience. If I ever change my opinion about it, I'll still have a higher regar for it than MIUI just because that cesspool has very intrusive ads.<br>
+      Goodnight.<p>
+    </div>
+    <script src="/js/oneko.js"></script>
+  </body>
+</html>
